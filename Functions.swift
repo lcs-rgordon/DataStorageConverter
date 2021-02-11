@@ -36,21 +36,21 @@ func convertToBits(from: DataStorageUnits, value: Int) -> Int {
 ///   - to: What data storage unit the value in bits should be converted to.
 ///   - value: The value to be converted.
 /// - Returns: The provided value in the desired data storage unit.
-func convertFromBits(to: DataStorageUnits, value: Int) -> Int {
+func convertFromBits(to: DataStorageUnits, value: Int) -> (quotient: Int, remainder: Int) {
     
     switch to {
     case .bit:
-        return value
+        return (value, value)
     case .nibble:
-        return value / 4
+        return (value / 4, value % 4)
     case .byte:
-        return value / 8
+        return (value / 8, value % 8)
     case .kilobyte:
-        return value / 8192
+        return (value / 8192, value % 8192)
     case .megabyte:
-        return value / 8388608
+        return (value / 8388608, value % 8388608)
     case .gigabyte:
-        return value / 8589934592
+        return (value / 8589934592, value % 8589934592)
     }
     
 }

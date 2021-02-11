@@ -40,7 +40,7 @@ while true {
     
     // What data storage unit are we converting from?
     let providedFromUnit = String.collectInput(withPrompt: "Please make a selection (1/2/3/4/5/6/Q): ",
-                                               acceptableValues: ["1", "2", "3", "4", "5", "6", "Q"]).uppercased()
+                                               acceptableValues: ["1", "2", "3", "4", "5", "6", "Q", "q"]).uppercased()
     
     // Exit program if user chose to quit
     if providedFromUnit == "Q" {
@@ -60,7 +60,7 @@ while true {
     
     // What data storage unit are we converting to?
     let providedToUnit = String.collectInput(withPrompt: "Please make a selection (1/2/3/4/5/6/Q): ",
-                                             acceptableValues: ["1", "2", "3", "4", "5", "6", "Q"]).uppercased()
+                                             acceptableValues: ["1", "2", "3", "4", "5", "6", "Q", "q"]).uppercased()
     
     // Exit program if user chose to quit
     if providedToUnit == "Q" {
@@ -114,31 +114,46 @@ while true {
     let finalValue = convertFromBits(to: toUnit, value: interimValue)
     
     // MARK: Output
-    if providedValue == 1 && finalValue == 1 {
+    if providedValue == 1 && finalValue.quotient == 1 {
+        
         print("""
 
-            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue) \(toUnit.rawValue).
-
-            Press return to continue.
-            """)
+            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)
+            """, terminator: "")
+                
     } else if providedValue == 1 {
         print("""
 
-            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue) \(toUnit.rawValue)s.
+            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)s
+            """, terminator: "")
 
-            Press return to continue.
-            """)
+    } else if finalValue.quotient == 1 {
+        
+        print("""
+
+            \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)
+            """, terminator: "")
 
     } else {
         
         print("""
 
-            \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue) \(toUnit.rawValue)s.
-
-            Press return to continue.
-            """)
+            \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)s
+            """, terminator: "")
 
     }
+    
+    if finalValue.remainder == 1 {
+        print(" with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)", terminator: "")
+    } else if finalValue.remainder > 1 {
+        print(" with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)s", terminator: "")
+    }
+
+    print("""
+        .
+
+        Press return to continue.
+        """)
     
     // This captures the return key
     _ = readLine()
