@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0E8F006425D5B5F00023C003 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F006325D5B5F00023C003 /* main.swift */; };
 		0E8F006C25D5B7860023C003 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F006B25D5B7860023C003 /* Extensions.swift */; };
+		0E8F006F25D5B7E60023C003 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F006E25D5B7E60023C003 /* Functions.swift */; };
+		0E8F007225D5B8010023C003 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F007125D5B8010023C003 /* Enumerations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,8 @@
 		0E8F006025D5B5F00023C003 /* DataStorageConverter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DataStorageConverter; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E8F006325D5B5F00023C003 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0E8F006B25D5B7860023C003 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0E8F006E25D5B7E60023C003 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		0E8F007125D5B8010023C003 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +47,9 @@
 		0E8F005725D5B5F00023C003 = {
 			isa = PBXGroup;
 			children = (
+				0E8F007125D5B8010023C003 /* Enumerations.swift */,
 				0E8F006B25D5B7860023C003 /* Extensions.swift */,
+				0E8F006E25D5B7E60023C003 /* Functions.swift */,
 				0E8F006225D5B5F00023C003 /* DataStorageConverter */,
 				0E8F006125D5B5F00023C003 /* Products */,
 			);
@@ -124,6 +130,8 @@
 			files = (
 				0E8F006425D5B5F00023C003 /* main.swift in Sources */,
 				0E8F006C25D5B7860023C003 /* Extensions.swift in Sources */,
+				0E8F006F25D5B7E60023C003 /* Functions.swift in Sources */,
+				0E8F007225D5B8010023C003 /* Enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
