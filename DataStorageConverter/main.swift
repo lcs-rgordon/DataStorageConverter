@@ -114,12 +114,32 @@ while true {
     let finalValue = convertFromBits(to: toUnit, value: interimValue)
     
     // MARK: Output
-    print("""
+    if providedValue == 1 && finalValue == 1 {
+        print("""
 
-        \(providedValue) \(fromUnit.rawValue)(s) is equal to \(finalValue) \(toUnit.rawValue)(s).
+            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue) \(toUnit.rawValue).
 
-        Press return to continue.
-        """)
+            Press return to continue.
+            """)
+    } else if providedValue == 1 {
+        print("""
+
+            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue) \(toUnit.rawValue)s.
+
+            Press return to continue.
+            """)
+
+    } else {
+        
+        print("""
+
+            \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue) \(toUnit.rawValue)s.
+
+            Press return to continue.
+            """)
+
+    }
+    
     // This captures the return key
     _ = readLine()
 }
