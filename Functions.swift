@@ -31,6 +31,11 @@ func convertToBits(from: DataStorageUnits, value: Int) -> Int {
     
 }
 
+/// Converts a given value in bits to an equivalent value in one of the allowed DataStorageUnits.
+/// - Parameters:
+///   - to: What data storage unit the value in bits should be converted to.
+///   - value: The value to be converted.
+/// - Returns: The provided value in the desired data storage unit.
 func convertFromBits(to: DataStorageUnits, value: Int) -> Int {
     
     switch to {
