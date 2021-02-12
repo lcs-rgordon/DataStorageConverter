@@ -99,9 +99,9 @@ func getDataStorageConversionResult(providedValue: Int,
     
     // Report the remainder, if there is one
     if finalValue.remainder == 1 {
-        result += " with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)"
+        result += " with a remainder of \(finalValue.remainder) bit"
     } else if finalValue.remainder > 1 {
-        result += " with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)s"
+        result += " with a remainder of \(finalValue.remainder) bits"
     }
 
     // Finish the sentence
