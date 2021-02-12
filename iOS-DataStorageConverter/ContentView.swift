@@ -33,6 +33,7 @@ struct ContentView: View {
             
             Form {
                 
+                // UI to allow user to select units we are converting from
                 Section(header: Text("Converting from?")) {
                     
                     Picker("From unit:", selection: $fromUnit) {
@@ -48,11 +49,13 @@ struct ContentView: View {
                 }
                 
                 
+                // UI to allow user to provide value to be converted
                 Section(header: Text("Value to convert?")) {
                     TextField("e.g.: 1024", text: $input)
                         .keyboardType(.numberPad)
                 }
                 
+                // UI to allow user to select units to convert to
                 Section(header: Text("Converting to?")) {
                     
                     Picker("To unit:", selection: $toUnit) {
@@ -67,6 +70,7 @@ struct ContentView: View {
                     
                 }
 
+                // UI to show the result
                 Section(header: Text("Result is:")) {
                     
                     Text(output)
