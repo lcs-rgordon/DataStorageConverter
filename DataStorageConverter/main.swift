@@ -22,6 +22,25 @@ func printDataStorageUnitOptions() {
         """)
 }
 
+/// Converts the data storage selection from a string to an enumeration case
+func convertToEnumerationCase(selection: String) -> DataStorageUnits {
+    switch selection {
+    case "1":
+        return .bit
+    case "2":
+        return .nibble
+    case "3":
+        return .byte
+    case "4":
+        return .kilobyte
+    case "5":
+        return .megabyte
+    case "6":
+        return .gigabyte
+    default:
+        return .bit
+    }
+}
 
 // Loop until program is quit
 while true {
@@ -70,90 +89,28 @@ while true {
     // MARK: Process
 
     // Translate the provided "from" unit from the input menu into an enumeration case
-    var fromUnit: DataStorageUnits = .bit
-    switch providedFromUnit {
-    case "1":
-        fromUnit = .bit
-    case "2":
-        fromUnit = .nibble
-    case "3":
-        fromUnit = .byte
-    case "4":
-        fromUnit = .kilobyte
-    case "5":
-        fromUnit = .megabyte
-    case "6":
-        fromUnit = .gigabyte
-    default:
-        break
-    }
+    let fromUnit = convertToEnumerationCase(selection: providedFromUnit)
     
     // Translate the provided "to" unit from the input menu into an enumeration case
-    var toUnit: DataStorageUnits = .bit
-    switch providedToUnit {
-    case "1":
-        toUnit = .bit
-    case "2":
-        toUnit = .nibble
-    case "3":
-        toUnit = .byte
-    case "4":
-        toUnit = .kilobyte
-    case "5":
-        toUnit = .megabyte
-    case "6":
-        toUnit = .gigabyte
-    default:
-        break
-    }
+    let toUnit = convertToEnumerationCase(selection: providedToUnit)
     
     // Convert the provided value to an equivalent value in bits
     let interimValue = convertToBits(from: fromUnit, value: providedValue)
     
     // Convert to the desired destination unit
     let finalValue = convertFromBits(to: toUnit, value: interimValue)
-    
+
     // MARK: Output
-    if providedValue == 1 && finalValue.quotient == 1 {
-        
-        print("""
 
-            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)
-            """, terminator: "")
-                
-    } else if providedValue == 1 {
-        print("""
+    // Report results
+    let result = getDataStorageConversionResult(providedValue: providedValue,
+                                                finalValue: finalValue,
+                                                fromUnit: fromUnit,
+                                                toUnit: toUnit)
+    print(result)
 
-            \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)s
-            """, terminator: "")
-
-    } else if finalValue.quotient == 1 {
-        
-        print("""
-
-            \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)
-            """, terminator: "")
-
-    } else {
-        
-        print("""
-
-            \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)s
-            """, terminator: "")
-
-    }
-    
-    if finalValue.remainder == 1 {
-        print(" with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)", terminator: "")
-    } else if finalValue.remainder > 1 {
-        print(" with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)s", terminator: "")
-    }
-
-    print("""
-        .
-
-        Press return to continue.
-        """)
+    // Pause before continuing
+    print("\nPress return to continue.")
     
     // This captures the return key
     _ = readLine()

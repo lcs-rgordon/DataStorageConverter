@@ -54,3 +54,63 @@ func convertFromBits(to: DataStorageUnits, value: Int) -> (quotient: Int, remain
     }
     
 }
+
+
+/// Generates a user-friendly sentence summarizing conversion results, with correct pluralization.
+/// - Parameters:
+///   - providedValue: The value converted.
+///   - finalValue: The converted value.
+///   - fromUnit: The unit of the value that was converted.
+///   - toUnit: The unit that the value was converted to.
+/// - Returns: A sentence summarizing the conversion.
+func getDataStorageConversionResult(providedValue: Int,
+                                    finalValue: (quotient: Int, remainder: Int),
+                                    fromUnit: DataStorageUnits,
+                                    toUnit: DataStorageUnits) -> String {
+
+    // Start building the result
+    var result = ""
+    
+    // Handle pluralization
+    if providedValue == 1 && finalValue.quotient == 1 {
+        
+        result += """
+
+                \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)
+                """
+                
+    } else if providedValue == 1 {
+        
+        result += """
+
+                \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)s
+                """
+
+    } else if finalValue.quotient == 1 {
+        
+        result += """
+
+                \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)
+                """
+
+    } else {
+        
+        result += """
+
+                \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)s
+                """
+    }
+    
+    // Report the remainder, if there is one
+    if finalValue.remainder == 1 {
+        result += " with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)"
+    } else if finalValue.remainder > 1 {
+        result += " with a remainder of \(finalValue.remainder) \(fromUnit.rawValue)s"
+    }
+
+    // Finish the sentence
+    result += "."
+    
+    // Return complete result
+    return result
+}
