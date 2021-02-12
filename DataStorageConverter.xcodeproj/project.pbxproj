@@ -15,6 +15,8 @@
 		0E8F007D25D618260023C003 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F007C25D618260023C003 /* ContentView.swift */; };
 		0E8F007F25D618310023C003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E8F007E25D618310023C003 /* Assets.xcassets */; };
 		0E8F008225D618310023C003 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E8F008125D618310023C003 /* Preview Assets.xcassets */; };
+		0E8F009125D618680023C003 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F007125D5B8010023C003 /* Enumerations.swift */; };
+		0E8F009425D6186B0023C003 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8F006E25D5B7E60023C003 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -213,6 +215,8 @@
 			files = (
 				0E8F007D25D618260023C003 /* ContentView.swift in Sources */,
 				0E8F007B25D618260023C003 /* iOS_DataStorageConverterApp.swift in Sources */,
+				0E8F009125D618680023C003 /* Enumerations.swift in Sources */,
+				0E8F009425D6186B0023C003 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
