@@ -23,7 +23,7 @@ func printDataStorageUnitOptions() {
 }
 
 /// Converts the data storage selection from a string to an enumeration case
-func convertToEnumerationCase(selection: String) -> DataStorageUnits {
+func convertToEnumerationCase(selection: String) -> DataStorageUnit {
     switch selection {
     case "1":
         return .bit

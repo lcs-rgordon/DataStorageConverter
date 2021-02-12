@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DataStorageUnits: String {
+enum DataStorageUnit: String {
     case bit = "bit"
     case nibble = "nibble"
     case byte = "byte"
