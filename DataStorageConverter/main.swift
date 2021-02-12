@@ -7,6 +7,10 @@
 
 import Foundation
 
+// MARK: Functions
+
+// These functions are specific to the command-line version of the program.
+
 /// Prints the data storage unit options
 func printDataStorageUnitOptions() {
     print("""
@@ -41,6 +45,8 @@ func convertToEnumerationCase(selection: String) -> DataStorageUnit {
         return .bit
     }
 }
+
+// MARK: Primary logic loop
 
 // Loop until program is quit
 while true {
