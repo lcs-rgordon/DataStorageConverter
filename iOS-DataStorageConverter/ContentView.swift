@@ -15,31 +15,15 @@ struct ContentView: View {
     @State private var toUnit: DataStorageUnit = .bit
 
     // MARK: Computed properties
-    private var providedValue: Int {
+    private var output: String {
         
         // Ensure the provided input can be expressed as an integer
-        guard let inputAsInteger = Int(input) else {
-            return 0
+        guard let providedValue = Int(input) else {
+            return "Please provide an integer value."
         }
-        return inputAsInteger
-        
-    }
-    
-    private var result: String {
-        
-        // Convert the provided value to an equivalent value in bits
-        let interimValue = convertToBits(from: fromUnit, value: providedValue)
-        
-        // Convert to the desired destination unit
-        let finalValue = convertFromBits(to: toUnit, value: interimValue)
 
-        // Report results
-        let result = getDataStorageConversionResult(providedValue: providedValue,
-                                                    finalValue: finalValue,
-                                                    fromUnit: fromUnit,
-                                                    toUnit: toUnit)
-        
-        return result
+        // Return the converted value
+        return convert(providedValue: providedValue, fromUnit: fromUnit, toUnit: toUnit)
 
     }
     
@@ -85,7 +69,7 @@ struct ContentView: View {
 
                 Section(header: Text("Result is:")) {
                     
-                    Text(result)
+                    Text(output)
                         // Ensures text will wrap to multiple lines
                         .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                 }

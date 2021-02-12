@@ -100,21 +100,13 @@ while true {
     // Translate the provided "to" unit from the input menu into an enumeration case
     let toUnit = convertToEnumerationCase(selection: providedToUnit)
     
-    // Convert the provided value to an equivalent value in bits
-    let interimValue = convertToBits(from: fromUnit, value: providedValue)
-    
-    // Convert to the desired destination unit
-    let finalValue = convertFromBits(to: toUnit, value: interimValue)
+    // Get the result
+    let result = convert(providedValue: providedValue, fromUnit: fromUnit, toUnit: toUnit)
 
     // MARK: Output
 
     // Report results
     print("")
-
-    let result = getDataStorageConversionResult(providedValue: providedValue,
-                                                finalValue: finalValue,
-                                                fromUnit: fromUnit,
-                                                toUnit: toUnit)
     print(result)
 
     // Pause before continuing

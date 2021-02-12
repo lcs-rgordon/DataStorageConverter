@@ -110,3 +110,28 @@ func getDataStorageConversionResult(providedValue: Int,
     // Return complete result
     return result
 }
+
+/// Given a value in one data storage unit, returns a summary of the equivalent in another data unit.
+/// - Parameters:
+///   - providedValue: The value to convert.
+///   - fromUnit: What data storage unit the provided value is in.
+///   - toUnit: What data storage unit the value should be converted to.
+/// - Returns: A written summary of the equivalent value in the desired data storage unit.
+func convert(providedValue: Int, fromUnit: DataStorageUnit, toUnit: DataStorageUnit) -> String {
+    
+    // Convert the provided value to an equivalent value in bits
+    let interimValue = convertToBits(from: fromUnit, value: providedValue)
+    
+    // Convert to the desired destination unit
+    let finalValue = convertFromBits(to: toUnit, value: interimValue)
+
+    // Get result
+    let result = getDataStorageConversionResult(providedValue: providedValue,
+                                                finalValue: finalValue,
+                                                fromUnit: fromUnit,
+                                                toUnit: toUnit)
+
+    // Return the result
+    return result
+    
+}
