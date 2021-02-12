@@ -40,7 +40,7 @@ func convertFromBits(to: DataStorageUnit, value: Int) -> (quotient: Int, remaind
     
     switch to {
     case .bit:
-        return (value, value)
+        return (value, value % 1)
     case .nibble:
         return (value / 4, value % 4)
     case .byte:
@@ -75,28 +75,24 @@ func getDataStorageConversionResult(providedValue: Int,
     if providedValue == 1 && finalValue.quotient == 1 {
         
         result += """
-
                 \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)
                 """
                 
     } else if providedValue == 1 {
         
         result += """
-
                 \(providedValue) \(fromUnit.rawValue) is equal to \(finalValue.quotient) \(toUnit.rawValue)s
                 """
 
     } else if finalValue.quotient == 1 {
         
         result += """
-
                 \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)
                 """
 
     } else {
         
         result += """
-
                 \(providedValue) \(fromUnit.rawValue)s is equal to \(finalValue.quotient) \(toUnit.rawValue)s
                 """
     }
