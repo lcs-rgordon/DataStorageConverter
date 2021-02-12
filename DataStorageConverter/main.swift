@@ -109,6 +109,8 @@ while true {
     // MARK: Output
 
     // Report results
+    print("")
+
     let result = getDataStorageConversionResult(providedValue: providedValue,
                                                 finalValue: finalValue,
                                                 fromUnit: fromUnit,
